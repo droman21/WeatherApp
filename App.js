@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
 import WeatherInfo from './components/WeatherInfo';
+import UnitsPicker from './components/UnitsPicker';
+import ReloadIcon from './components/ReloadIcon';
 
 
 const WEATHER_API_KEY = '8a6ab51b54067527f45a9711f78435c5'
@@ -16,8 +18,10 @@ export default function App() {
 
   useEffect(() => {
     load()
-  }, [])
+  }, [unitsSystem])
+
   async function load() {
+    setCurrentWeather(null)
     try {
       let { status } = await Location.requestPermissionsAsync()
 
@@ -49,6 +53,8 @@ export default function App() {
       <View style={styles.container}>
         <StatusBar style="auto" />
         <View style={styles.main}>
+          <UnitsPicker unitsSystem={unitsSystem} setUnitsSystem={setUnitsSystem} />
+          <ReloadIcon load={load} />
           <WeatherInfo currentWeather={currentWeather} />
         </View>
       </View>
@@ -66,12 +72,12 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#81d4fa',
+    backgroundColor: '#69f0ae',
     flex: 1,
     justifyContent: 'center',
   },
   main: {
-    backgroundColor: '#81d4fa',
+    backgroundColor: '#69f0ae',
     justifyContent: 'center',
     flex: 1
   }

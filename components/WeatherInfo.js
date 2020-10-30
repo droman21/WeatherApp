@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
-// import { colors } from '../utils/index'
+import { colors } from '../utils/index'
 
-// const { PRIMARY_COLOR, SECONDARY_COLOR } = colors
+const { PRIMARY_COLOR, SECONDARY_COLOR } = colors
 
 export default function WeatherInfo({ currentWeather }) {
     const {
@@ -33,16 +33,16 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize',
     },
     weatherIcon: {
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
     },
     textPrimary: {
         fontSize: 40,
-        // color: PRIMARY_COLOR,
+        color: PRIMARY_COLOR,
     },
     textSecondary: {
         fontSize: 20,
-        // color: SECONDARY_COLOR,
+        color: SECONDARY_COLOR,
         fontWeight: '500',
         marginTop: 10,
     },
