@@ -66,10 +66,12 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#81d4fa',
     flex: 1,
     justifyContent: 'center',
   },
   main: {
+    backgroundColor: '#81d4fa',
     justifyContent: 'center',
     flex: 1
   }
